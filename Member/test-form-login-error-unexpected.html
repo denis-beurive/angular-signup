@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="appModule">
+
+
+
+
+	<!--
+
+		Make sure to configure your local WEB server, so that the domain "webenv.localhost" points to the directory "www".
+
+		Also make sure that the virtual host configuration contains:
+		
+		<IfModule mod_headers.c>
+			Header set Access-Control-Allow-Origin "*"
+		</IfModule>
+
+	-->
+
+
+
+
+    <head>
+        <meta charset="utf-8">
+    	<link rel="stylesheet" href="http://webenv.localhost/bower_components/bootstrap/dist/css/bootstrap.css" crossorigin="anonymous">
+
+    	<link rel="stylesheet" href="http://webenv.localhost/bower_components/angular-bootstrap/ui-bootstrap-csp.css" crossorigin="anonymous">
+
+    	<link rel="stylesheet/less" type="text/css" href="app.less" />
+    	<script src="http://webenv.localhost/bower_components/less/dist/less.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+	    <div class="container" style="background: white !important;">
+
+	    	<db-login-error-unexpected-form-directive/>
+		</div> <!-- class="container" -->
+
+	   	<script src="http://webenv.localhost/bower_components/angular/angular.js"></script>
+	   	<script src="http://webenv.localhost/bower_components/angular-route/angular-route.js"></script>
+	   	<script src="http://webenv.localhost/bower_components/angular-animate/angular-animate.js"></script>
+	   	<script src="http://webenv.localhost/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+	   	<script src="http://webenv.localhost/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+	   	<script src="../Services/validator.js"></script>
+	   	<script src="../Services/Directives/validator.js"></script>
+
+	   	<script src="directives/form-login-error-unexpected.js"></script>
+
+		<script src="js/app-form-login-error-unexpected.js"></script>
+		
+    </body>
+</html>

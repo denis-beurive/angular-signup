@@ -1,0 +1,15 @@
+{
+  "name": "Angular-tests",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-route": "1.4.7",
+    "angular-animate": "1.4.7",
+    "angular-messages": "1.4.7",
+    "angular-bootstrap": "*",
+    "bootstrap": "3.1.1",
+    "animate.css": "*",
+    "less": "*"
+  },
+  "private": true
+}

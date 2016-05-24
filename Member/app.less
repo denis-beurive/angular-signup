@@ -1,0 +1,62 @@
+
+/**
+ * See https://docs.angularjs.org/guide/forms
+ */
+
+body {
+	background-color: #FFFFFF;
+}
+
+/* The control has *NOT* been blurred. */
+.app-form input.ng-pristine {
+  background-color: #c2f9f5;
+}
+
+/* The control has been blurred (losed focus) and is valid. */
+.app-form input.ng-touched.ng-valid {
+  background-color: #73ed4e;
+}
+
+/* The control has been blurred (losed focus) and is *NOT* valid. */
+.app-form input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+button:disabled {
+    color: #AAAAAA;
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.login-trigger,.password-trigger,.registration-trigger {
+    font-weight: bold;
+    width: 100%;
+}
+
+@import (less) "http://webenv.localhost/bower_components/animate.css/animate.css";
+
+.fadingOut {
+    .fadeOut;
+    .animated;
+}
+
+.fadingIn {
+    .fadeIn;
+    .animated;
+}
+
+.fadingOutQuickly {
+    .fadeOut;
+    .animated;
+    -webkit-animation-duration: 0.1s;
+    animation-duration: 0.1s;
+}
+
+.fadingInQuickly {
+    .fadeIn;
+    .animated;
+    -webkit-animation-duration: 0.1s;
+    animation-duration: 0.1s;
+}
+

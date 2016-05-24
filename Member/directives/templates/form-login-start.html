@@ -1,0 +1,74 @@
+<form class="form-horizontal app-form" name="loginStart" novalidate="" ng-model="member">
+
+	<!--
+
+		Please note that we do not use elements' attributes without values.
+		that is, we specify:
+			novalidate=""
+		Rather than:
+			novalidate
+
+		The same semark can be formulated for the attributes "db-member-id-validator-directive" and "db-password-validator-directive".
+		Keep in mind that these attributes are, in facts, directives.
+
+	-->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<h2>Authentification</h2>
+		</div>
+	</div>
+
+	<!-- LOGIN -->
+
+	<div class="form-group">
+		<label for="inputId" class="col-sm-2 control-label">Pseudo ou email</label>
+		<div class="col-sm-6">
+			<input name="inputId" type="text" ng-required="true" ng-model="loginStartContext.member.id" db-member-id-validator-directive="" class="form-control" placeholder="Votre pseudo ou votre adresse email" ng-model-options="{ updateOn: 'blur' }"/>
+		</div>
+
+		<div class="col-sm-offset-2 col-sm-6">
+			<ng-messages for="loginStart.inputId.$error" role="alert" ng-show="loginStart.inputId.$touched">
+				<ng-message when="required">Vous devez entrer un pseudonyme ou une adresse email.</ng-message>
+				<ng-message when="db-member-id">Le pseudonyme ou l'adresse email n'est pas valide.</ng-message>
+			</ng-messages>
+		</div>
+	</div>
+
+	<!-- PASSWORD -->
+
+	<div class="form-group">
+		<label for="inputPassword" class="col-sm-2 control-label">Mot de passe</label>
+		<div class="col-sm-6">
+			<input name="inputPassword" type="password" ng-required="true" ng-model="loginStartContext.member.password" db-password-validator-directive="" class="form-control" placeholder="Votre mot de passe" ng-model-options="{ updateOn: 'blur' }"/>
+		</div>
+
+		<div class="col-sm-offset-2 col-sm-6">
+			<ng-messages for="loginStart.inputPassword.$error" role="alert" ng-show="loginStart.inputPassword.$touched">
+				<ng-message when="required">Vous devez entrer votre mot de passe.</ng-message>
+				<ng-message when="db-password">Le mot de passe n'est pas valide.</ng-message>
+			</ng-messages>
+		</div>
+	</div>
+
+	<!-- REMEMBER ME -->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-6">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="loginStartContext.member.remember"/> Se souvenir de moi
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<!-- SUBMIT -->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default login-start-submit-trigger" ng-click="loginStartContext.submit()" ng-disabled="loginStartContext.disabled.submit">Envoyer</button>
+		</div>
+	</div>
+
+</form>

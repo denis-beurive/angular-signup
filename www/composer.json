@@ -1,0 +1,18 @@
+{
+    "repositories": [
+        {
+            "packagist": false
+        },
+        {
+            "type": "composer",
+            "url": "http://satis.localhost"
+        }
+    ],
+    "require": {
+        "fguillot/json-rpc": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+        }
+    }
+}

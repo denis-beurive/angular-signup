@@ -1,0 +1,95 @@
+<form class="form-horizontal app-form" novalidate="" ng-model="member" name="register">
+
+	<!--
+
+		Please note that we do not use elements' attributes without values.
+		that is, we specify:
+			novalidate=""
+		Rather than:
+			novalidate
+
+		The same semark can be formulated for the attributes "db-email-validator-directive" and "db-login-validator-directive".
+		Keep in mind that these attributes are, in facts, directives.
+
+	-->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<h2>Inscription</h2>
+		</div>
+	</div>
+
+	<!--
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+	 		<ng-messages for="register.inputLogin.$error" role="alert">
+				<ng-message when="AlreadyUsedEmail">L'adresse email spécifiée est déjà utilisée.</ng-message>
+				<ng-message when="AlreadyUsedLogin">Le pseudonyme spécifié est déjà utilisée.</ng-message>
+	  		</ng-messages>
+		</div>
+	</div>
+	-->
+
+	<!-- EMAIL -->
+
+	<div class="form-group">
+		<label for="inputEmail" class="col-sm-2 control-label">Votre email</label>
+		<div class="col-sm-6">
+			<input name="inputEmail" type="text" ng-required="true" ng-model="registrationStartContext.member.email" db-email-validator-directive="" class="form-control" placeholder="Votre adresse email" ng-model-options="{ updateOn: 'blur' }"/>
+		</div>
+
+		<div class="col-sm-offset-2 col-sm-6">
+			<ng-messages for="register.inputEmail.$error" role="alert" ng-show="register.inputEmail.$touched">
+				<ng-message when="required">Vous n'avez pas indiqué votre adresse email.</ng-message>
+				<ng-message when="db-email">L'adresse email spécifiée n'est pas valide. Elle contient des caractères non autorisés ou sa structure ne correspond pas à celle d’une adresse email.</ng-message>
+			</ng-messages>
+		</div>
+
+		<!--
+		<div class="col-sm-offset-2 col-sm-6">
+			<ul>
+				<li><b>$pristine:</b> <code>{{ register.inputEmail.$pristine }}</code></li>
+				<li><b>$dirty:</b> <code>{{ register.inputEmail.$dirty }}</code></li>
+				<li><b>$touched:</b> <code>{{ register.inputEmail.$touched }}</code></li>
+				<li><b>$error:</b> <code>{{ register.inputEmail.$error }}</code></li>
+			</ul>
+		</div>
+		-->
+	</div>
+
+	<!-- LOGIN -->
+
+	<div class="form-group">
+		<label for="inputLogin" class="col-sm-2 control-label">Choisissez un pseudo</label>
+		<div class="col-sm-6">
+			<input name="inputLogin" type="text" ng-required="true" ng-model="registrationStartContext.member.login" db-login-validator-directive="" class="form-control" placeholder="Choisissez un pseudo" ng-model-options="{ updateOn: 'blur' }"/>
+		</div>
+
+		<div class="col-sm-offset-2 col-sm-6">
+			<ng-messages for="register.inputLogin.$error" role="alert" ng-show="register.inputLogin.$touched">
+				<ng-message when="required">Vous n'avez pas choisi de pseudonyme.</ng-message>
+				<ng-message when="db-login">Le pseudonyme spécifié n'est pas valide. Il contient des caractères non autorisés ou sa taille n'est pas valide.</ng-message>
+			</ng-messages>
+		</div>
+
+		<!--
+ 		<div class="col-sm-offset-2 col-sm-6">
+			<ul>
+				<li><b>$pristine:</b> <code>{{ register.inputLogin.$pristine }}</code></li>
+				<li><b>$dirty:</b> <code>{{ register.inputLogin.$dirty }}</code></li>
+				<li><b>$touched:</b> <code>{{ register.inputLogin.$touched }}</code></li>
+				<li><b>$error:</b> <code>{{ register.inputLogin.$error }}</code></li>
+			</ul>		
+		</div>
+		-->
+	</div>
+
+	<!-- SUBMIT -->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default registration-start-submit-trigger" ng-click="registrationStartContext.submit()" ng-disabled="registrationStartContext.disabled.submit">Je souhaite m'inscrire</button>
+		</div>
+	</div>
+
+</form>

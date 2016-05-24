@@ -1,0 +1,63 @@
+<form class="form-horizontal app-form" novalidate="" ng-model="email" name="emailValidation">
+
+	<!--
+
+		Please note that we do not use elements' attributes without values.
+		that is, we specify:
+			novalidate=""
+		Rather than:
+			novalidate
+
+		The same semark can be formulated for the attribute "db-email-code-directive".
+		Keep in mind that this attribute is, in facts, a directive.
+
+	-->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<h2>Validation de l'adresse email</h2>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<ng-messages for="registrationValidateEmailContext.errors" role="alert">
+				<ng-message when="emails">Exemple de message d'erreur.</ng-message>
+	  		</ng-messages>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-6">
+			<p>Un email a été envoyé à l’adresse email suivante : <code>{{registrationValidateEmailContext.emailAddress}}</code></p>
+		</div>
+	</div>
+
+	<!-- CODE -->
+
+	<div class="form-group">
+		<label for="inputCode" class="col-sm-2 control-label">Code reçu</label>
+		<div class="col-sm-6">
+			<input name="inputCode" type="text" ng-required="true" ng-model="registrationValidateEmailContext.email.code" db-code-validator-directive="" class="form-control" placeholder="Code qui figure dans l'email"/>
+		</div>
+
+		<div class="col-sm-offset-2 col-sm-6">
+			<ng-messages for="emailValidation.inputCode.$error" role="alert" ng-hide="emailValidation.inputCode.$pristine">
+				<ng-message when="required">Le code de vérification est indispensable pour valider l'inscription.</ng-message>
+				<ng-message when="db-code">Le code n'est pas valide.</ng-message>
+			</ng-messages>
+		</div>
+	</div>
+
+	<!-- SUBMIT -->
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-5">
+			<button type="submit" class="btn btn-default registration-validate-email-back-trigger" ng-click="registrationValidateEmailContext.back()">Retour</button>
+		</div>	
+		<div class="col-sm-5">
+			<button type="submit" class="btn btn-default registration-validate-email-submit-trigger" ng-click="registrationValidateEmailContext.submit()" ng-disabled="registrationValidateEmailContext.disabled.submit">Envoyer</button>
+		</div>
+	</div>
+
+</form>
